@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+}
+
+.custom-slider {
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3px;
+    background: transparent;
+    border-radius: 2px;
+  }
+  
+  .custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    color: 000;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+  }
+  
+  
+
+#app {
+    background-image: linear-gradient(#d0f4ea, #829399);
+    /* background-color: #d0f4ea; */
+}
+
+h1 {
+    font-size: 100px;
+    font-family: SignPainter;
+}
+
+#banner {
+    padding: 4%;
+    text-align: center;
+    /* background-color: #d0f4ea; */
+    color: #545f66;
+}
+
+#Colors {
+    background-color: white;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 4%;
+    border: 1px;
+    border-style: solid;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 10px;
+}
+
+#addingNotes {
+    display: flex;
+    flex-direction: column;
+}
+
+#sideBySide {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#clumpLeft {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+#colorPallate {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    border: 5px;
+    border-style: solid;
+    margin-right: 5%;
+}
+
+#RGBDiv {
+    align-items: self-start;
+}
+
+#HexDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+#buttonDiv {
+    position: absolute;
+    left: 44%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+#SaveButton {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#colorBackground {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #829399; */
+    margin-top: 6%;
+}
+
+#colorTitle {
+    margin-top: 1%;
+    color: #545f66;
+}
+
+#listArea {
+    padding-bottom: 5%;
+    padding-right: 5%;
+    display: flex;
+}
+
+ul {
+    flex-wrap: wrap;
+    display: flex;
+}
+
+#colorList {
+    list-style: none;
+    border-radius: 10px;
+    border-color: #545f66;
+    border-style: solid;
+    padding: 1%;
+    margin-top: 1%;
+    margin-left: 1%;
+    width: 200px;
+}
+
+.button {
+    border-radius: 10px;
+    background-color: #fff;
+    color:#545f66;
+    border-style: solid;
+    border-color: #000;
+}
+
+#DeleteAll {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10%;
+}
+
+#editNote {
+    margin-left: 5px;
+}
+
+#submitButton {
+    margin-left: 5px;
+}

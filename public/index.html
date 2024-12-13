@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app">
+            <!-- this is my Vue app -->
+            <div id="banner">
+                <h1>Color Picker</h1>
+            </div>
+            <div id="Colors">
+                <div id="addingNotes">
+                    <div id="sideBySide">
+                        <div id="clumpLeft">
+                            <div id="colorPallate" :style="{ backgroundColor: `rgb(${RedValue}, ${GreenValue}, ${BlueValue})`, color: `rgb(${255 - RedValue}, ${255 - GreenValue}, ${255 - BlueValue})` }">
+                            </div>
+                            <div id="RGBDiv">
+                                <h2>RGB Color Selection</h2>
+                                <div id="RedId">
+                                    <input type="range" min=0 max=255 v-model="RedValue" class="custom-slider" id="RedSlider" :style="{ backgroundColor: 'rgb(255, 0, 0)' }">
+                                    <input type="number" id="RedText" v-model="RedValue">
+                                </div>
+                                <br>
+                                <div id="GreenId">
+                                    <input type="range" min="0" max="255" v-model="GreenValue" class="custom-slider" id="GreenSlider" :style="{ backgroundColor: 'rgb(0, 255, 0)' }">
+                                    <input type="number" id="GreenText" v-model="GreenValue">
+                                </div>
+                                <br>
+                                <div id="BlueId">
+                                    <input type="range" min="0" max="255" v-model="BlueValue" class="custom-slider" id="BlueSlider" :style="{ backgroundColor: 'rgb(0, 0, 255)' }">
+                                    <input type="number" id="BlueText" v-model="BlueValue">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="HexDiv">
+                            <h2>Hex Color Selection</h2>
+                            <input type="text" id="HexText" v-model="HexValue" @change="validateHexValue(); updateColorsHex()">
+                            <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+                        </div>
+                    </div>
+                    <div id="notesContainer">
+                </div>
+                    <h2>Notes</h2>
+                    <input type="text" id="notesText" v-model="Note" placeholder="Quick Description of the use behind the color.">
+                </div>
+            </div>
+            <div id="buttonDiv">
+                <button id="SaveButton" v-on:click="buttonClickHandler" class="button">Save Color</button>
+            </div>
+            <div id="colorBackground">
+                <h1 id="colorTitle">Color Bank</h1>
+                <div id="listArea">
+                    <ul>
+                        <li id="colorList" v-for="Color in colors" :style="{ backgroundColor: Color.HexValue, color: getContrastColor(Color.HexValue) }">
+                            rgb({{Color.RedValue}}, {{Color.GreenValue}}, {{Color.BlueValue}})
+                            <br>
+                            Hex: {{ Color.HexValue }}
+                            <br>
+                            Note: 
+                            <br>
+                            {{Color.Note}}
+                            <br>
+                            <input type="text" v-model="updatedNote" v-if="Color.editing" id="editForm" placeholder="enter updated note">
+                            <br>
+                            <button v-on:click="deleteColor(Color._id)" class="button">Delete</button>
+                            <button @click="toggleEdit(Color)" id="editNote" class="button">{{ Color.editing ? 'Cancel' : 'Change Note' }}</button>
+                            <button v-on:click="submitChanges(Color._id)" v-if="Color.editing" id="submitButton" class="button">Submit</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src ="app.js"></script>
+    </body>
+</html>
